@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Job Login</title>
+</head>
+<body>
+<form action="/login" method="post">
+    <input type="text" placeholder="Enter your first name" name="firstName"/>
+    <input type="text" placeholder="Enter your last name" name="lastName"/>
+    <input type="text" placeholder="Enter your current job" name="currentJob"/>
+    <button type="submit">Login</button>
+</form>
+
+<ol>
+
+    {{#jobs}}<li> Job Title: {{position}}| Job Salary: ${{salary}}| Required Exp: {{yearsOfExperienceNeeded}}| Job
+    Location: {{cityLocated}}</li> <br>{{/jobs}}
+
+</ol>
+
+</body>
+</html>

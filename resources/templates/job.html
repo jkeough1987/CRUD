@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Job</title>
+</head>
+<body>
+Hello
+{{#user}}
+{{firstName}} {{lastName}}
+<form action="/logout" method="post">
+    <button type="submit">Logout</button>
+</form>
+<br>
+Current position:{{currentJob}}
+<br>
+<hr>
+{{/user}}
+Create a Job<br>
+<form action="/create-job" method="post">
+    <input type="text" placeholder="Enter job title" name="job-title"/><br>
+    <input type="number" placeholder="Enter job annual salary" name="job-salary"/><br>
+    <input type="number" placeholder="Enter years of experience" name="job-years"/><br>
+    <input type="text" placeholder="Enter location of job" name="job-location"/><br>
+    <button type="submit">Submit</button>
+</form>
+<hr>
+<ol>
+
+
+    {{#jobs}}
+    <li> Job Title: {{position}}| Job Salary: ${{salary}}| Required Exp: {{yearsOfExperienceNeeded}}| Job
+        Location: {{cityLocated}} {{id}}
+        {{#show}}
+        <form action="/delete-job" method="post">
+            <input type="hidden" value="{{listId}}" name="delete"/>
+            <button type="submit">Delete</button>
+        </form>
+        <form action="/edit" method="get">
+            <input type="hidden" value="{{listId}}" name="editNum"/><br>
+            <button type="submit">Edit</button>
+        </form>
+        {{/show}}
+        <hr>
+    </li>
+    <br>
+    {{/jobs}}
+
+</ol>
+
+</body>
+</html>
